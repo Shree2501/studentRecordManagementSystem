@@ -8,6 +8,7 @@ This project does not use a database. All data is stored and managed using text 
 - Add new student records
 - View all stored student records
 -Update existing student details
+-Delete student records
 -Persistent storage using text files
 -Menu-driven console interface
 
@@ -25,13 +26,11 @@ This project does not use a database. All data is stored and managed using text 
 
 ## ❗ Limitations
 
--No delete record feature
 -No input validation for marks
 -Uses plain text instead of structured formats (CSV/DB)
 
 ## 🔮 Future Improvements
 
--Delete student records
 -Input validation
 -CSV-based storage
 -Binary file handling using pickle
