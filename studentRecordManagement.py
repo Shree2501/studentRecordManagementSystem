@@ -70,6 +70,33 @@ def update_student():
     except FileNotFoundError:
         print("File does not exist.\n")
 
+def delete_student():
+    roll_to_delete = input("Enter Roll Number to delete: ").strip()
+    found = False
+    remaining_records = []
+
+    try:
+        with open(FILE_NAME, "r") as file:
+            for line in file:
+                roll, name, marks = line.strip().split(",")
+
+                if roll == roll_to_delete:
+                    found = True
+                else:
+                    remaining_records.append(line)
+
+        if not found:
+            print("Roll number not found.\n")
+            return
+
+        with open(FILE_NAME, "w") as file:
+            file.writelines(remaining_records)
+
+        print("Student record deleted successfully.\n")
+
+    except FileNotFoundError:
+        print("File does not exist.\n")
+
 
 # Main Menu
 def main():
@@ -78,7 +105,8 @@ def main():
         print("1. Add Student")
         print("2. View Students")
         print("3. Update Student")
-        print("4. Exit")
+        print("4. Delete Student")
+        print("5. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -89,6 +117,8 @@ def main():
         elif choice == "3":
             update_student()
         elif choice == "4":
+            delete_student()
+        elif choice == "5":
             print("Exited")
             break
         else:
